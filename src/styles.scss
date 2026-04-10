@@ -1,1 +1,63 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+:root {
+  --light: #ffffff;
+  --dark: #333;
+  --accent-color: #79B3AD;
+
+  --bg-color: var(--light);
+  --text-color: var(--dark);
+  img[src$='.svg'] {
+    filter: invert(1);
+  }
+}
+
+[data-theme='dark'] {
+  --bg-color: var(--dark);
+  --text-color: var(--light);
+
+  img[src$='.svg'] {
+    filter: invert(0);
+  }
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  max-width: 1920px;
+  margin: 0 auto;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  background: #2A7B9B;
+  background: linear-gradient(45deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
+  background-attachment: fixed;
+  background-size: cover;
+}
+main {
+  padding: 1rem;
+}
+
+button{
+    background: transparent;
+    cursor: pointer;
+    border:none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
+    text-decoration: none;
+    color: var(--bg-color);
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+    border: 1px solid var(--bg-color);
+    &.active{
+      color: var(--bg-color);
+    }
+    &:hover{
+      color: var(--bg-color);
+      text-decoration: underline;
+    }
+  }
+

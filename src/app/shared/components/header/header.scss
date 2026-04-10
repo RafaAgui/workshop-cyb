@@ -2,8 +2,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  background-color: var(--text-color);
+  color: var(--bg-color);
   padding: 1rem;
 
   &__title{
@@ -37,14 +37,14 @@
     flex-direction: column;
     align-items: center;
     gap: 0.25rem;
-    background-color: var(--text-color);
+    border: 1px solid var(--bg-color);
   }
   &__link{
     display: flex;
     align-items: center;
     gap: 0.25rem;
     text-decoration: none;
-    color: #999;
+    color: var(--bg-color);
     font-size: 0.875rem;
     padding: 0.5rem 1rem;
     border-radius: 1rem;

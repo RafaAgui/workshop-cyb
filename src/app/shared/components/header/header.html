@@ -2,10 +2,10 @@
   <h1 class="header__title">CYB Workshop</h1>
   <nav class="navbar">
     <ul class="navbar__list">
-    <li class="navbar__item"><a routerLink="/">Home</a></li>
-    <li class="navbar__item"><a routerLink="/login">Login</a></li>
+    <li class="navbar__item"><a class="navbar__link" routerLink="/">Home</a></li>
+    <li class="navbar__item"><a class="navbar__link" routerLink="/login">Login</a></li>
     @if (authStore.isAuthenticated()) {
-      <li class="navbar__item"><a routerLink="/protected">Protected</a></li>
+      <li class="navbar__item"><a class="navbar__link" routerLink="/protected">Protected</a></li>
       <li class="navbar__item">
         <button (click)="authStore.logout()" class="navbar__link">
           <span class="navbar__name">Logout: {{ authStore.user()?.user }}</span>
