@@ -1,11 +1,11 @@
 <form>
   <fieldset>
-    <label for="">email
-      <input type="email" [formField]="loginForm.email" />
+    <label for="">Username
+      <input type="user" [formField]="loginForm.user" />
   <!-- Solo muestra el error si el usuario ya tocó el campo -->
-    @if (loginForm.email().touched() && loginForm.email().invalid()) {
+    @if (loginForm.user().touched() && loginForm.user().invalid()) {
     <span class="error">
-    {{ loginForm.email().errors()[0].message }}
+    {{ loginForm.user().errors()[0].message }}
     </span>
     }
     </label>
@@ -25,5 +25,5 @@
 
 
 
-<button (click)="doLogin()" >Entrar</button>
+<button (click)="doLogin()" [disabled]="loginForm.user().invalid() || loginForm.password().invalid()" >Entrar</button>
 </form>

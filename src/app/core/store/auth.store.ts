@@ -1,5 +1,4 @@
 import { computed, Injectable, signal, inject } from '@angular/core';
-import { Router, UrlTree } from '@angular/router';
 
 import { IntAuthState, IntUser } from '../models/auth.model';
 
@@ -27,6 +26,11 @@ export class AuthStore {
     sessionStorage.setItem('auth_session', JSON.stringify(authData));
   }
 
+  isAuthenticatedFromStorage(): boolean {
+  const saved = sessionStorage.getItem('auth_session');
+  return saved ? JSON.parse(saved).isAuthenticated : false;
+}
+
   setUser(user: IntUser): void {
     this.state.update((s) => ({ ...s, user }));
   }
@@ -37,15 +41,4 @@ export class AuthStore {
   }
 }
 
-export const authGuard = (): boolean | UrlTree => {
-  const authStore = inject(AuthStore);
-  const router = inject(Router);
 
-  /* Si estás autenticado, te dejo pasar */
-  if (authStore.isAuthenticated()) {
-    return true;
-  }
-
-  /* En caso contrario te mando al login */
-  return router.createUrlTree(['/login']);
-};

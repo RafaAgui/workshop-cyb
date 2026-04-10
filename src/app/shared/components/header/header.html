@@ -1,0 +1,18 @@
+<header>
+  <h1>CYB Workshop</h1>
+  <nav>
+    <ul>
+    <li class="navbar__item"><a routerLink="/">Home</a></li>
+    <li class="navbar__item"><a routerLink="/login">Login</a></li>
+    @if (authStore.isAuthenticated()) {
+      <li class="navbar__item"><a routerLink="/protected">Protected</a></li>
+      <li class="navbar__item">
+        <button (click)="authStore.logout()" class="navbar__link">
+          <span class="navbar__name">Logout: {{ authStore.user()?.user }}</span>
+        </button>
+      </li>
+
+    }
+    </ul>
+  </nav>
+</header>

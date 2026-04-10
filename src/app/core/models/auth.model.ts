@@ -1,6 +1,6 @@
 export interface IntUser {
-  username: string;
-  email: string;
+  password: string;
+  user: string;
 }
 
 export interface IntAuthState {
@@ -8,4 +8,3 @@ export interface IntAuthState {
   isAuthenticated: boolean;
   user?: IntUser | null;
 }
-
