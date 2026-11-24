@@ -2,25 +2,36 @@
   <form class="login__form">
     <fieldset class="login__field">
       <label class="login__label" for="username">Username
-        <input class="login__input" type="user" [formField]="loginForm.user" />
-    <!-- Solo muestra el error si el usuario ya tocó el campo -->
-      @if (loginForm.user().touched() && loginForm.user().invalid()) {
-      <span class="error">
-      {{ loginForm.user().errors()[0].message }}
-      </span>
-      }
+        <input class="login__input" type="text" [formField]="loginForm.user" />
+        @if (loginForm.user().touched() && loginForm.user().invalid()) {
+          <span class="error">
+            {{ loginForm.user().errors()[0].message }}
+          </span>
+        }
       </label>
     </fieldset>
     <fieldset class="login__field">
-      <label class="login__label" >password
-      <input class="login__input"type="password" [formField]="loginForm.password" />
+      <label class="login__label">Password
+        <input class="login__input" type="password" [formField]="loginForm.password" />
         @if (loginForm.password().invalid() && loginForm.password().touched()) {
           @for (error of loginForm.password().errors(); track error) {
             <span>{{ error.message }}</span>
           }
         }
-        </label>
+      </label>
     </fieldset>
-    <button (click)="doLogin()" [disabled]="loginForm.user().invalid() || loginForm.password().invalid()" >Entrar</button>
+
+        <!-- Mensaje de error del servidor -->
+    @if (errorMessage()) {
+      <span class="error error--server">{{ errorMessage() }}</span>
+    }
+
+    <!-- type="button" evita el submit nativo del navegador -->
+    <button
+      type="button"
+      (click)="doLogin()"
+      [disabled]="loginForm.user().invalid() || loginForm.password().invalid()">
+      Entrar
+    </button>
   </form>
 </section>

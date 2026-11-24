@@ -1,6 +1,6 @@
 export interface IntUser {
-  password: string;
-  user: string;
+  username: string;
+  email: string;
 }
 
 export interface IntAuthState {
