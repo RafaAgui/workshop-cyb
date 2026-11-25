@@ -1,6 +1,7 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
 
 // Tipamos la respuesta que nos dará FastAPI
 export interface LoginResponse {
@@ -20,7 +21,7 @@ export class AuthService {
   private http = inject(HttpClient);
 
   // En la vida real esta URL iría en un archivo de entorno
-  private apiUrl = 'http://localhost:8000';
+  private apiUrl = environment.apiUrl;;
 
   login(credentials: LoginRequest): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(
